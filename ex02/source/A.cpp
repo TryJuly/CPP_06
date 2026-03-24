@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A.hpp                                              :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/23 15:49:15 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/24 10:59:49 by strieste         ###   ########.fr       */
+/*   Created: 2026/03/24 10:59:03 by strieste          #+#    #+#             */
+/*   Updated: 2026/03/24 10:59:28 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef A_HPP
-#define A_HPP
+#include "../header/A.hpp"
 
-#include "Base.hpp"
-
-class A : public Base
-{
-	public:
-		virtual ~A();
-};
-
-#endif
+A::~A()
+{ return ; }

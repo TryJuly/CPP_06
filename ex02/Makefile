@@ -1,7 +1,7 @@
 #################################################################################################################
 #                                           VARIABLES SET                                                       #
 #################################################################################################################
-NAME = serializer
+NAME = exec
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
@@ -10,7 +10,8 @@ INCLUDES = header
 OBJ_DIR = objets
 
 VPATH = source
-SRCS = main.cpp Serializer.cpp
+SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp generate.cpp\
+		identify.cpp
 
 OBJS = ${patsubst %.cpp, ${OBJ_DIR}/%.o, ${SRCS}}
 #################################################################################################################

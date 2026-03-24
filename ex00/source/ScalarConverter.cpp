@@ -6,7 +6,7 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 20:13:13 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/23 14:29:43 by strieste         ###   ########.fr       */
+/*   Updated: 2026/03/24 09:44:54 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,7 @@ static void	PrintDouble(std::string const &str)
 		char charResult = static_cast<char>(doubleResult);
 		std::cout << "Char: '" << charResult << "'" << std::endl;
 	}
-	if (doubleResult > INT_MAX || doubleResult < INT_MIN)
+	if (doubleResult > INT32_MAX || doubleResult < INT32_MIN)
 		std::cout << "Int: Impossible." << std::endl;
 	else
 	{
@@ -248,7 +248,7 @@ static void	PrintFloat(std::string const &str)
 			char charResult = static_cast<char>(floatResult);
 			std::cout << "Char: '" << charResult << "'" << std::endl;
 		}
-		if (floatResult > INT_MAX || floatResult < INT_MIN)
+		if (floatResult > INT32_MAX || floatResult < INT32_MIN)
 			std::cout << "Int: Impossible." << std::endl;
 		else
 		{
@@ -288,7 +288,7 @@ static void	PrintInt(std::string const &str)
 		std::cout << "Double: Impossible." << std::endl;
 		return ;
 	}
-	if (doubleResult <= INT_MAX && doubleResult >= INT_MIN)
+	if (doubleResult <= INT32_MAX && doubleResult >= INT32_MIN)
 	{
 		intResult = atoi(str.c_str());
 		if (intResult < 0 || intResult > 127)

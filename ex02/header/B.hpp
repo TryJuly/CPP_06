@@ -6,7 +6,7 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 15:49:15 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/23 15:52:35 by strieste         ###   ########.fr       */
+/*   Updated: 2026/03/24 10:50:22 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "Base.hpp"
 
 class B: public Base
-{};
+{
+	public:
+		virtual	~B();
+};
 
 #endif
