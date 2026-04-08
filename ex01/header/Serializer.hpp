@@ -6,14 +6,13 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:55:04 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/24 08:56:54 by strieste         ###   ########.fr       */
+/*   Updated: 2026/04/01 15:15:59 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-// # include <cstdint>
 # include <stdint.h>
 # include "Data.hpp"
 

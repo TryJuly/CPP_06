@@ -6,7 +6,7 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 12:08:53 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/24 08:41:55 by strieste         ###   ########.fr       */
+/*   Updated: 2026/04/07 09:40:21 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Error argument missing" << std::endl;
+		std::cerr << "Error: Missing argument." << std::endl;
 		return (1);
 	}
 	ScalarConverter::convert(av[1]);

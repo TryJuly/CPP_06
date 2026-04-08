@@ -6,7 +6,7 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 15:20:48 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/24 09:00:38 by strieste         ###   ########.fr       */
+/*   Updated: 2026/04/01 15:15:04 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	main(void)
 
 	raw = Serializer::serialize(&data);
 	
-	std::cout << "Origine string: " << data.str << std::endl;
-	std::cout << "Origine nbr: " << data.nbr << std::endl;
+	std::cout << "Origin string: " << data.str << std::endl;
+	std::cout << "Origin nbr: " << data.nbr << std::endl;
 
 	std::cout << std::endl;
 
@@ -47,8 +47,8 @@ int	main(void)
 
 	std::cout << std::endl;
 
-	std::cout << "Origine string: " << data.str << std::endl;
-	std::cout << "Origine nbr: " << data.nbr << std::endl;
+	std::cout << "Origin string: " << data.str << std::endl;
+	std::cout << "Origin nbr: " << data.nbr << std::endl;
 
 	std::cout << std::endl;
 

@@ -6,15 +6,11 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 20:13:13 by strieste          #+#    #+#             */
-/*   Updated: 2026/03/24 09:44:54 by strieste         ###   ########.fr       */
+/*   Updated: 2026/04/08 14:50:48 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/ScalarConverter.hpp"
-#include <iostream>
-#include <limits>
-#include <errno.h>
-#include <iomanip>
 
 static bool	IsInt(std::string const &str);
 static bool	IsChar(std::string const &str);
@@ -32,7 +28,7 @@ ScalarConverter::ScalarConverter()
 
 ScalarConverter::ScalarConverter(ScalarConverter const &copy)
 {
-	(void)copy;
+	( void )copy;
 	return ;
 }
 
@@ -41,7 +37,7 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter&	ScalarConverter::operator=(ScalarConverter const &copy)
 {
-	(void)copy;
+	( void )copy;
 	return (*this);
 }
 
@@ -57,8 +53,7 @@ void	ScalarConverter::convert(std::string const &str)
 		PrintFloat(str);
 	else if (IsDouble(str))
 		PrintDouble(str);
-	else
-	{
+	else {
 		std::cout << "Char: Impossible." << std::endl;
 		std::cout << "Int: Impossible." << std::endl;
 		std::cout << "Float: Impossible." << std::endl;
@@ -94,8 +89,7 @@ static bool	IsInt(std::string const &str)
 		sign++;
 	if (sign && str.length() == 1)
 		return (false);
-	for (int i = sign; str[i]; i++)
-	{
+	for (int i = sign; str[i]; i++) {
 		if (str[i] < '0' || str[i] > '9')
 			return (false);
 	}
@@ -112,8 +106,7 @@ static bool	IsFloat(std::string const &str)
 		sign++;
 	if (sign && length == 1)
 		return (false);
-	for (int i = sign; i < (length - 1) ; i++)
-	{
+	for (int i = sign; i < (length - 1) ; i++) {
 		if (str[i] != '.' && (str[i] < '0' || str[i] > '9'))
 			return (false);
 	}
@@ -130,8 +123,7 @@ static bool	IsDouble(std::string const &str)
 		sign++;
 	if (sign && length == 1)
 		return (false);
-	for (int i = sign; i < length ; i++)
-	{
+	for (int i = sign; i < length ; i++) {
 		if (str[i] != '.' && (str[i] < '0' || str[i] > '9'))
 			return (false);
 	}
@@ -146,8 +138,7 @@ static void	PrintPseudoLiteral(std::string const &str)
 		std::cout << "Float: " << str << "f" << std::endl;
 	else
 		std::cout << "Float: " << str << std::endl;
-	if (str == "nanf" || str == "-inff" || str == "+inff")
-	{
+	if (str == "nanf" || str == "-inff" || str == "+inff") {
 		std::string copy = str;
 		copy.erase(copy.length() - 1);
 		std::cout << "Double: " << copy << std::endl;
@@ -184,27 +175,30 @@ static void	PrintDouble(std::string const &str)
 	errno = 0;
 	doubleResult = strtod(str.c_str(), NULL);
 
-	if (errno == ERANGE)
-	{
+	if (errno == ERANGE) {
 		std::cout << "Char: Impossible." << std::endl;
 		std::cout << "Int: Impossible." << std::endl;
-		std::cout << "Float: Impossible." << std::endl;
-		std::cout << "Double: Impossible." << std::endl;
+		if (str[0] == '-') {
+			std::cout << "Float: -inff." << std::endl;
+			std::cout << "Double: -inf." << std::endl;
+		}
+		else {
+			std::cout << "Float: +inff." << std::endl;
+			std::cout << "Double: +inf." << std::endl;
+		}
 		return ;
 	}
 	if (doubleResult < 0 || doubleResult > 127)
 		std::cout << "Char: Impossible." << std::endl;
 	else if (!isprint(doubleResult))
 		std::cout << "Char: Non displayable." << std::endl;
-	else
-	{
+	else {
 		char charResult = static_cast<char>(doubleResult);
 		std::cout << "Char: '" << charResult << "'" << std::endl;
 	}
-	if (doubleResult > INT32_MAX || doubleResult < INT32_MIN)
+	if (doubleResult > INT_MAX || doubleResult < INT_MIN)
 		std::cout << "Int: Impossible." << std::endl;
-	else
-	{
+	else {
 		int intResult = static_cast<int>(doubleResult);
 		std::cout << "Int: " << intResult << std::endl;
 	}
@@ -212,10 +206,9 @@ static void	PrintDouble(std::string const &str)
 		std::cout << "Float: +inff" << std::endl;
 	else if (doubleResult < -std::numeric_limits<float>::max())
 		std::cout << "Float: -inff" << std::endl;
-	else
-	{
+	else {
 		floatResult = static_cast<float>(doubleResult);
-	std::cout << "Float: " << std::fixed << std::setprecision(1) << floatResult << "f" << std::endl;
+		std::cout << "Float: " << std::fixed << std::setprecision(1) << floatResult << "f" << std::endl;
 	}
 	std::cout << "Double: " << std::fixed << std::setprecision(1) << doubleResult << std::endl;
 	return ;
@@ -232,8 +225,14 @@ static void	PrintFloat(std::string const &str)
 	{
 		std::cout << "Char: Impossible." << std::endl;
 		std::cout << "Int: Impossible." << std::endl;
-		std::cout << "Float: Impossible." << std::endl;
-		std::cout << "Double: Impossible." << std::endl;
+		if (str[0] == '-') {
+			std::cout << "Float: -inff." << std::endl;
+			std::cout << "Double: -inf." << std::endl;
+		}
+		else {
+			std::cout << "Float: +inff." << std::endl;
+			std::cout << "Double: +inf." << std::endl;
+		}
 		return ;
 	}
 	if (doubleResult <= std::numeric_limits<float>::max() && doubleResult >= -std::numeric_limits<float>::max())
@@ -248,7 +247,7 @@ static void	PrintFloat(std::string const &str)
 			char charResult = static_cast<char>(floatResult);
 			std::cout << "Char: '" << charResult << "'" << std::endl;
 		}
-		if (floatResult > INT32_MAX || floatResult < INT32_MIN)
+		if (floatResult > static_cast<float>(INT_MAX) || floatResult < static_cast<float>(INT_MIN))
 			std::cout << "Int: Impossible." << std::endl;
 		else
 		{
@@ -284,11 +283,17 @@ static void	PrintInt(std::string const &str)
 	{
 		std::cout << "Char: Impossible." << std::endl;
 		std::cout << "Int: Impossible." << std::endl;
-		std::cout << "Float: Impossible." << std::endl;
-		std::cout << "Double: Impossible." << std::endl;
+		if (str[0] == '-') {
+			std::cout << "Float: -inff." << std::endl;
+			std::cout << "Double: -inf." << std::endl;
+		}
+		else {
+			std::cout << "Float: +inff." << std::endl;
+			std::cout << "Double: +inf." << std::endl;
+		}
 		return ;
 	}
-	if (doubleResult <= INT32_MAX && doubleResult >= INT32_MIN)
+	if (doubleResult <= INT_MAX && doubleResult >= INT_MIN)
 	{
 		intResult = atoi(str.c_str());
 		if (intResult < 0 || intResult > 127)
