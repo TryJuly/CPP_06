@@ -6,14 +6,12 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 15:20:48 by strieste          #+#    #+#             */
-/*   Updated: 2026/04/01 15:15:04 by strieste         ###   ########.fr       */
+/*   Updated: 2026/04/09 07:49:21 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/Serializer.hpp"
 #include <iostream>
-# include <stdint.h>
-
 
 int	main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: strieste <strieste@student.42.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 18:44:33 by strieste          #+#    #+#             */
-/*   Updated: 2026/04/08 14:50:59 by strieste         ###   ########.fr       */
+/*   Updated: 2026/04/09 07:36:27 by strieste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include <string>
 # include <cstdlib>
-# include <stdint.h>
 #include <iostream>
 #include <limits>
-// #include <limits.h>
+#include <limits.h>
 #include <errno.h>
 #include <iomanip>
 
